@@ -5,7 +5,7 @@ onAuthStateChanged
 
 //signup users
 document.getElementById("signup-form").addEventListener('submit', (e) =>{
-    e.preventDefault()
+    e.preventDefault();
 
     const email = document.getElementById('signup-email').value;
     const password = document.getElementById('signup-password').value;
