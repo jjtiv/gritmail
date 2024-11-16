@@ -1,6 +1,7 @@
 import { auth } from "./firebaseConfig.js";
 import { signOut } from "@firebase/auth";
 
+
 //logout
 document.getElementById('logoutBtn').onclick = function(event){
     signOut(auth)

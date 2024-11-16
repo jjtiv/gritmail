@@ -1,44 +1,229 @@
 body {
     background-color: #ffc2b4;
+    margin: 0;
+  
 }
-/* Modal styles */
+
+.image-container {
+    position: relative;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  #landingImg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  
+  .text-overlay {
+    position: absolute;
+    top: 40%;  /* Position the text vertically in the middle */
+    left: 50%;  /* Position the text horizontally in the middle */
+    transform: translate(-50%, -50%);  /* Center the text */
+    color: white;  /* Text color */
+    font-size: 80px;  /* Adjust text size */
+    text-align: center;  /* Center the text */
+    font-weight: bold;  /* Optional: Make text bold */
+  }
+  
+  .text-overlay-desc {
+    position: absolute;
+    top: 55%;  /* Position the text vertically in the middle */
+    left: 50%;  /* Position the text horizontally in the middle */
+    transform: translate(-50%, -50%);  /* Center the text */
+    color: white;  /* Text color */
+    font-size: 30px;  /* Adjust text size */
+    text-align: center;  /* Center the text */
+    font-weight: bold;  /* Optional: Make text bold */
+  }
+
+  .button-overlay {
+    position: absolute;
+    top: 5%;  /* Position the text vertically in the middle */
+    left: 83%;  /* Position the text horizontally in the middle */ 
+  }
+  .landingBtn{
+    background-color: white;      /* White background for the button */
+    color: red;                   /* Red text color */
+    border: 2px solid red;        /* Red border */
+    border-radius: 25px;          /* Rounded corners for pill shape */
+    padding: 10px 30px;           /* Adds padding (adjust for size) */
+    font-size: 16px;              /* Text size */
+    font-weight: bold;            /* Bold text */
+    text-transform: uppercase;    /* Uppercase letters (optional) */
+    cursor: pointer;             /* Changes the cursor to a pointer on hover */
+  }
+  
+
+.navbar{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 20px;
+    background-color: #333;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+.navbar .logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.navbar .button-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#message{
+    padding: 0%;
+    margin: 0%;
+}
+
+.navigation{
+    display: flex;
+    width: 100%;
+    padding: 10px 20px;
+    background-color: #545252;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    gap: 40px;
+}
+
+.navigation .navLink{
+    text-decoration: none; /* Removes underline */
+    color: #fff; /* Sets the text color to black */
+    
+}
+
+
+/* Modal background overlay */
 .modal {
-    display: none; /* Hidden by default */
+    display: none; /* Hidden by default, can toggle to "flex" with JavaScript */
     position: fixed;
-    z-index: 1; /* Sit on top */
+    z-index: 1;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgba(0,0,0,0.4); /* Black with opacity */
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+    justify-content: center;
+    align-items: center;
 }
 
+/* Modal content box */
 .modal-content {
+    position: relative; 
     background-color: #fefefe;
-    margin: 15% auto;
     padding: 20px;
-    border: 1px solid #888;
-    width: 300px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 400px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
 }
 
-.close {
-    color: #aaa;
-    font-size: 28px;
+/* Heading */
+.modal-content h2 {
+    font-family: Arial, sans-serif;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Form labels */
+.modal-content label {
+    display: block;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #333;
+    text-align: left;
+}
+
+/* Input fields */
+.modal-content input[type="email"],
+.modal-content input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+/* Submit button */
+.modal-content button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
     font-weight: bold;
+    color: #fff;
+    background-color: #5cb85c;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.modal-content button[type="submit"]:hover {
+    background-color: #4cae4c;
+}
+
+/* Add spacing between form elements */
+.modal-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.forgot-password {
+    display: block;
+    width: 30%;
+    margin: 10px 0;
+    margin-bottom: 0;
+    font-size: 14px;
+    color: #5cb85c;
+    text-decoration: none;
+    text-align: right; /* Aligns the link to the right */
+    transition: color 0.3s;
+}
+
+.forgot-password:hover {
+    color: #246d24;
+}
+
+/* Close button styles */
+.close-button {
     position: absolute;
     top: 10px;
-    right: 25px;
+    right: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
     cursor: pointer;
+    transition: color 0.3s;
 }
 
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
+.close-button:hover {
+    color: #ff0000; /* Change color on hover */
 }
 
-
-
+.fade-button {
+    opacity: 0;            /* Start with the button hidden */
+    transition: opacity 2s; /* Fade in over 2 seconds */
+  }
+  
+  /* Make the button fade in when the page loads */
+  body.loaded .fade-button {
+    opacity: 1;  /* Fully visible */
+  }
+  

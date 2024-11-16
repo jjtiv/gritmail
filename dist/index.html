@@ -7,18 +7,30 @@
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
-    <h1>Webpage</h1>
-    <h2>Signup</h2>
-        <form id="signup-form">
-            <label>Email:</label>
-            <input type="email" id="signup-email" required><br>
-            <label>Password:</label>
-            <input type="password" id="signup-password" required><br>
-            <button type="submit">Sign Up</button>
-        </form>
-    <p id="message">empty</p>
 
-    <button id="loginBtn">Login</button>
+    <div class="image-container">
+        <img src="../css/images/foodland.png" id="landingImg" alt="landingImg">
+        <div class="text-overlay">Gritmail</div>
+        <div class="text-overlay-desc">A streamlined food pick-up service for UMBC students</div>
+        <div class="button-overlay">
+            <button id="signupBtnLand" class="landingBtn">Sign Up</button>
+            <button id="loginBtnLand" class="landingBtn">Login</button>
+        </div>
+    </div>
+      
+    <div class="navbar">
+        <div class="logo">Gritmail</div>
+        <div class="accountBtns">
+            <p id="message"></p>
+            <button id="signupBtn">Sign Up</button>
+            <button id="loginBtn">Login</button>
+        </div>
+    </div>
+    <div class="navigation">
+        <a href="display.html" class="navLink">Next</a>
+        <a href="display.html" class="navLink">Menu</a>
+    </div>
+
 
     <div id="loginModal" class="modal">
         <div class="modal-content">
@@ -30,13 +42,34 @@
                 <label>Password:</label>
                 <input type="password" id="login-password" required><br>
 
+                <a href="#" class="forgot-password">Forgot Password?</a>
+
                 <button type="submit">Submit</button>
             </form>
         </div>
     </div>
-    <button id="logoutBtn">Logout</button>
 
-    <a href="display.html">Next</a>
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <h2>Signup</h2>
+            <form id="signup-form">
+                <label>Username:</label>
+                <input type="email" id="signup-username" required><br>
+
+                <label>Password:</label>
+                <input type="password" id="signup-password" required><br>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <p id="currUser">Current user is none.</p>
+    <button class="fade-button">Click Me</button>
+
+    <div style="height: 50vh;"></div>
+      
+
 
     <script src="index.bundle.js"></script>
 </body>
