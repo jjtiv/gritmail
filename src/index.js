@@ -80,7 +80,6 @@ onAuthStateChanged(auth, (user) => {
       document.getElementById('loginBtnLand').style.display = "none";
       document.getElementById('signupBtnLand').style.display = "none";
 
-      document.getElementById('currUser').innerHTML = `Current user is ${user.email}`;
     } else {
       // If no user is logged in, show a message or prompt to login
       document.getElementById('message').innerHTML = "Please log in.";
@@ -92,9 +91,12 @@ onAuthStateChanged(auth, (user) => {
     }
   });
 
+
+  
   window.onload = function() {
     document.body.classList.add('loaded');
   };
-  
+
+
 
 

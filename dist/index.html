@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Gritmail</title>
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
 
     <div class="image-container">
         <img src="../css/images/foodland.png" id="landingImg" alt="landingImg">
-        <div class="text-overlay">Gritmail</div>
+        <div class="text-overlay"><img src="../css/images/paw.png" alt="paw" id="pawPrint">Gritmail</div>
         <div class="text-overlay-desc">A streamlined food pick-up service for UMBC students</div>
         <div class="button-overlay">
             <button id="signupBtnLand" class="landingBtn">Sign Up</button>
@@ -22,13 +22,17 @@
         <div class="logo">Gritmail</div>
         <div class="accountBtns">
             <p id="message"></p>
-            <button id="signupBtn">Sign Up</button>
-            <button id="loginBtn">Login</button>
+            <button id="signupBtn" class="landingBtn2">Sign Up</button>
+            <button id="loginBtn" class="landingBtn2">Login</button>
         </div>
     </div>
     <div class="navigation">
         <a href="display.html" class="navLink">Next</a>
-        <a href="display.html" class="navLink">Menu</a>
+        <a href="menu.html" class="navLink">Today's Menu</a>
+        <a href="mealPeriod.html" class="navLink">Meal Periods</a>
+        <a href="#" class="navLink">About Us!</a>
+        <a href="#" class="navLink">Account</a>
+        <a href="#" class="navLink">Contact</a>
     </div>
 
 
@@ -63,13 +67,62 @@
             </form>
         </div>
     </div>
+    <div class="infoContainerLeft">
+        <div class="infoTextLeft">
+            <p class="infoHeaderLeft">Order Online</p>
+            <p>Order online or with a mobile device using this website.</p>
+        </div>
+        <div class="infoImgLeft">
+            <img src="../css/images/steak.jpg" alt="steak">
+        </div>
+    </div>
 
-    <p id="currUser">Current user is none.</p>
-    <button class="fade-button">Click Me</button>
+    <div class="infoContainerRight">
+        <div class="infoImgRight">
+            <img src="../css/images/steak.jpg" alt="steak">
+        </div>
+        <div class="infoTextRight">
+            <p class="infoHeaderLeft">Prepared</p>
+            <p>An employee will prepare and box your order.</p>
+        </div>
+    </div>
 
-    <div style="height: 50vh;"></div>
-      
+    <div class="infoContainerLeft">
+        <div class="infoTextLeft">
+            <p class="infoHeaderLeft">Pickup at Location</p>
+            <p>Show your order number to the counter and collect your food.</p>
+        </div>
+        <div class="infoImgLeft">
+            <img src="../css/images/steak.jpg" alt="steak">
+        </div>
+    </div>
 
+    <div class="infoContainerRight">
+        <div class="infoImgRight">
+            <img src="../css/images/steak.jpg" alt="steak">
+        </div>
+        <div class="infoTextRight">
+            <p class="infoHeaderLeft">Enjoy!</p>
+            <p>Enjoy UMBC's finest cuisine!</p>
+        </div>
+    </div>
+    <div class="overlay">
+        <div>
+            <img src="../css/images/temp.jpeg" alt="field" id="getStartImg">
+            <div class="text-overlay2">Gritmail</div>
+            <div class="text-overlay-desc2">A streamlined food pick-up service for UMBC students</div>
+            <div class="button-container">
+                <button class="order-now-btn">Order Now</button>
+            </div>
+        </div>
+    </div>
+
+    <div style="display: inline-block; height: 500px;"></div>
+
+
+    <footer>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus hic necessitatibus quos illum error recusandae, quibusdam perspiciatis adipisci ex molestias animi non? Odio nihil at illum tempore nobis nam enim.</p>
+    </footer>
 
     <script src="index.bundle.js"></script>
 </body>

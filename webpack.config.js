@@ -5,6 +5,7 @@ module.exports = {
     entry: {
         index: './src/index.js',
         display: './src/display.js',
+        menu:   './src/menu.js'
       },
     output: {
         filename: '[name].bundle.js',

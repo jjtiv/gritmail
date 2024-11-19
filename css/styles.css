@@ -1,5 +1,5 @@
 body {
-    background-color: #ffc2b4;
+    background-color: #F5F5F7;
     margin: 0;
   
 }
@@ -17,13 +17,16 @@ body {
     width: 100%;
     height: auto;
   }
-  
+  #pawPrint{
+    width: 10%;
+    height: auto;
+  }
   .text-overlay {
     position: absolute;
     top: 40%;  /* Position the text vertically in the middle */
     left: 50%;  /* Position the text horizontally in the middle */
     transform: translate(-50%, -50%);  /* Center the text */
-    color: white;  /* Text color */
+    color: #ffffff;  /* Text color */
     font-size: 80px;  /* Adjust text size */
     text-align: center;  /* Center the text */
     font-weight: bold;  /* Optional: Make text bold */
@@ -56,6 +59,28 @@ body {
     text-transform: uppercase;    /* Uppercase letters (optional) */
     cursor: pointer;             /* Changes the cursor to a pointer on hover */
   }
+
+  .landingBtn:hover {
+    background-color: red;
+    color: white;
+}
+
+.landingBtn2{
+    background-color: white;      /* White background for the button */
+    color: red;                   /* Red text color */
+    border: 2px solid red;        /* Red border */
+    border-radius: 25px;          /* Rounded corners for pill shape */
+    padding: 10px 30px;           /* Adds padding (adjust for size) */
+    font-size: 16px;              /* Text size */
+    font-weight: bold;            /* Bold text */
+    text-transform: uppercase;    /* Uppercase letters (optional) */
+    cursor: pointer;             /* Changes the cursor to a pointer on hover */
+  }
+
+  .landingBtn:hover2 {
+    background-color: red;
+    color: white;
+}
   
 
 .navbar{
@@ -69,6 +94,7 @@ body {
     font-family: Arial, sans-serif;
     box-sizing: border-box;
 }
+
 
 .navbar .logo {
     font-size: 24px;
@@ -95,12 +121,12 @@ body {
     font-family: Arial, sans-serif;
     box-sizing: border-box;
     gap: 40px;
+    
 }
 
 .navigation .navLink{
     text-decoration: none; /* Removes underline */
-    color: #fff; /* Sets the text color to black */
-    
+    color: #fff; /* Sets the text color to black */    
 }
 
 
@@ -200,30 +226,139 @@ body {
 .forgot-password:hover {
     color: #246d24;
 }
+  
+.infoContainerLeft{
+    display: flex;
+    justify-self: center;
+    width: 70%;
+    margin: 20px;
+    overflow: hidden;
+}
 
-/* Close button styles */
-.close-button {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 24px;
+.infoImgLeft{
+    width: 100%;
+    height: auto;
+    display: inline-flex;
+    justify-content: flex-end;
+}
+
+.infoHeaderLeft{
+    font-size: 200%;
     font-weight: bold;
-    color: #333;
-    cursor: pointer;
-    transition: color 0.3s;
+    margin-bottom: 0%;
 }
 
-.close-button:hover {
-    color: #ff0000; /* Change color on hover */
+.infoTextLeft{
+    margin: 0;
+    font-size: 150%;
+    color: #F44322;
+    display: flex; /* Enable flexbox for the text container */
+    flex-direction: column; /* Stack the paragraphs vertically */
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    text-align: center; /* Ensure text alignment is centered */
+    width: 50%; /* Optional: Adjust width if needed */
+    margin-left: 5%;
 }
 
-.fade-button {
-    opacity: 0;            /* Start with the button hidden */
-    transition: opacity 2s; /* Fade in over 2 seconds */
-  }
-  
-  /* Make the button fade in when the page loads */
-  body.loaded .fade-button {
-    opacity: 1;  /* Fully visible */
-  }
-  
+.infoContainerRight{
+    display: flex;
+    justify-self: center;
+    width: 70%;
+    margin: 20px;
+    overflow: hidden;
+}
+
+.infoImgRight{
+    width: 100%;
+    height: auto;
+    display: inline-flex;
+    justify-content: flex-start;
+}
+
+.infoTextRight{
+    margin: 0;
+    font-size: 150%;
+    color: #F44322;
+    display: flex; /* Enable flexbox for the text container */
+    flex-direction: column; /* Stack the paragraphs vertically */
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    text-align: center; /* Ensure text alignment is centered */
+    width: 50%; /* Optional: Adjust width if needed */
+    margin-right: 5%;
+}
+
+.infoHeaderRight{
+    font-size: 200%;
+    font-weight: bold;
+    margin-bottom: 0%;
+}
+
+#getStartImg {
+    width: 100%;
+    height: 500px;
+    display: block;
+    opacity: 50%; /* Dim the image */
+}
+
+.overlay {
+    margin-top: 100px;
+    position: relative; /* Set as a containing block for absolutely positioned children */
+    width: 100%;
+    height: 100%; /* Ensure it covers the entire image */
+}
+
+.text-overlay2, .text-overlay-desc2 {
+    position: absolute; /* Position relative to the .overlay container */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for the text's width/height */
+    color: #ffffff; /* White text for contrast */
+    text-align: center; /* Center-align text */
+    font-weight: bold;
+}
+
+.text-overlay2 {
+    top: 40%; /* Adjust the vertical position */
+    font-size: 80px; /* Main heading font size */
+}
+
+.text-overlay-desc2 {
+    top: 55%; /* Position below the main text */
+    font-size: 30px; /* Description font size */
+}
+
+.button-container {
+    position: absolute;
+    top: 70%; /* Position button below the description */
+    left: 50%;
+    transform: translateX(-50%); /* Center horizontally */
+    text-align: center; /* Ensure text inside button is centered */
+}
+
+.order-now-btn {
+    background-color: red;      /* White background for the button */
+    color: white;                   /* Red text color */
+    border-radius: 25px;          /* Rounded corners for pill shape */
+    border: none;
+    padding: 10px 30px;           /* Adds padding (adjust for size) */
+    font-size: 16px;              /* Text size */
+    font-weight: bold;            /* Bold text */
+    cursor: pointer;  
+}
+
+.order-now-btn:hover {
+    background-color: #bd0505; /* Darker green when hovered */
+}
+
+footer{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    background-color: #333;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+}

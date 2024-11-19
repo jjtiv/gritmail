@@ -50,16 +50,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-/***/ "./src/display.js":
-/*!************************!*\
-  !*** ./src/display.js ***!
-  \************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _firebaseConfig_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./firebaseConfig.js */ \"./src/firebaseConfig.js\");\n/* harmony import */ var _firebase_auth__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @firebase/auth */ \"./node_modules/@firebase/auth/dist/esm2017/index.js\");\n/* harmony import */ var firebase_firestore__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! firebase/firestore */ \"./node_modules/firebase/firestore/dist/esm/index.esm.js\");\n\r\n\r\n\r\n\r\n\r\n//logout\r\ndocument.getElementById('logoutBtn').onclick = function(event){\r\n    (0,_firebase_auth__WEBPACK_IMPORTED_MODULE_1__.signOut)(_firebaseConfig_js__WEBPACK_IMPORTED_MODULE_0__.auth)\r\n    .then(() => {\r\n      // Successfully logged out\r\n      document.getElementById('message').innerHTML = \"You have logged out.\";\r\n    })\r\n    .catch((error) => {\r\n      // Handle any errors during logout\r\n      console.error(\"Error logging out:\", error.message);\r\n      document.getElementById('message').innerText = \"Error logging out.\";\r\n    });\r\n}\r\n\r\nasync function getMenu() {\r\n  const today = new Date();\r\n  const dayOfWeek = today.getDay(); // Get current day (0 = Sunday, 1 = Monday, etc.)\r\n\r\n  // Map JavaScript days to Firestore document names\r\n  const daysOfWeek = [\"sunday\", \"monday\", \"tuesday\", \"wednesday\", \"thursday\", \"friday\", \"saturday\"];\r\n  const dayName = daysOfWeek[dayOfWeek]; // Get the name of the current day\r\n\r\n  try {\r\n    // Get the document for the current day from Firestore\r\n    const docRef = (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.doc)(_firebaseConfig_js__WEBPACK_IMPORTED_MODULE_0__.db, \"menus\", dayName); // Reference to the day's document\r\n    const docSnap = await (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.getDoc)(docRef); // Fetch the document\r\n\r\n    if (docSnap.exists()) {\r\n      // If the document exists, display the menu\r\n      const menu = docSnap.data().menu;\r\n      const menuList = document.getElementById('menu-list');\r\n      menuList.innerHTML = \"\"; // Clear any existing menu items\r\n      menu.forEach(item => {\r\n        const li = document.createElement('li');\r\n        li.textContent = item;\r\n        menuList.appendChild(li);\r\n      });\r\n    } else {\r\n      console.log(\"No menu available for today.\");\r\n    }\r\n  } catch (error) {\r\n    console.error(\"Error fetching the menu: \", error);\r\n  }\r\n}\r\n\r\n// Call the function to display the menu on page load\r\nwindow.onload = getMenu;\n\n//# sourceURL=webpack://gritmail/./src/display.js?");
-
-/***/ }),
-
 /***/ "./src/firebaseConfig.js":
 /*!*******************************!*\
   !*** ./src/firebaseConfig.js ***!
@@ -67,6 +57,16 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _fir
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   auth: () => (/* binding */ auth),\n/* harmony export */   db: () => (/* binding */ db)\n/* harmony export */ });\n/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! firebase/app */ \"./node_modules/firebase/app/dist/esm/index.esm.js\");\n/* harmony import */ var firebase_auth__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! firebase/auth */ \"./node_modules/firebase/auth/dist/esm/index.esm.js\");\n/* harmony import */ var firebase_firestore__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! firebase/firestore */ \"./node_modules/firebase/firestore/dist/esm/index.esm.js\");\n\r\n\r\n\r\n\r\nconst firebaseConfig = {\r\n    apiKey: \"AIzaSyDc21P618AP9ABDE5e5GFgOLN0MKyz-xMk\",\r\n    authDomain: \"gritmail447.firebaseapp.com\",\r\n    projectId: \"gritmail447\",\r\n    storageBucket: \"gritmail447.firebasestorage.app\",\r\n    messagingSenderId: \"44157529917\",\r\n    appId: \"1:44157529917:web:44b90f0fdcb0a4d675df54\",\r\n    measurementId: \"G-0QW08HYD9P\"\r\n};\r\n\r\nconst app = (0,firebase_app__WEBPACK_IMPORTED_MODULE_0__.initializeApp)(firebaseConfig);\r\nconst auth = (0,firebase_auth__WEBPACK_IMPORTED_MODULE_1__.getAuth)(app);\r\nconst db = (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.getFirestore)(app);\r\n\r\n\r\n\n\n//# sourceURL=webpack://gritmail/./src/firebaseConfig.js?");
+
+/***/ }),
+
+/***/ "./src/menu.js":
+/*!*********************!*\
+  !*** ./src/menu.js ***!
+  \*********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _firebaseConfig_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./firebaseConfig.js */ \"./src/firebaseConfig.js\");\n/* harmony import */ var firebase_firestore__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! firebase/firestore */ \"./node_modules/firebase/firestore/dist/esm/index.esm.js\");\n\r\n\r\n\r\nasync function getMenu() {\r\n    const today = new Date();\r\n    const dayOfWeek = today.getDay(); // Get current day (0 = Sunday, 1 = Monday, etc.)\r\n  \r\n    // Map JavaScript days to Firestore document names\r\n    const daysOfWeek = [\"sunday\", \"monday\", \"tuesday\", \"wednesday\", \"thursday\", \"friday\", \"saturday\"];\r\n    const dayName = daysOfWeek[dayOfWeek]; // Get the name of the current day\r\n    document.getElementById(\"todaysDay\").textContent = dayName;\r\n  \r\n    try {\r\n      // Get the document for the current day from Firestore\r\n      const docRef = (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_1__.doc)(_firebaseConfig_js__WEBPACK_IMPORTED_MODULE_0__.db, \"menus\", dayName); // Reference to the day's document\r\n      const docSnap = await (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_1__.getDoc)(docRef); // Fetch the document\r\n  \r\n      if (docSnap.exists()) {\r\n        // If the document exists, display the menu\r\n        const menu = docSnap.data().menu;\r\n        const menuList = document.getElementById('menu-list');\r\n        menuList.innerHTML = \"\"; // Clear any existing menu items\r\n        menu.forEach(item => {\r\n          const li = document.createElement('li');\r\n          li.textContent = item;\r\n          menuList.appendChild(li);\r\n        });\r\n      } else {\r\n        console.log(\"No menu available for today.\");\r\n      }\r\n    } catch (error) {\r\n      console.error(\"Error fetching the menu: \", error);\r\n    }\r\n  }\r\n  \r\n  // Call the function to display the menu on page load\r\n  window.onload = getMenu;\n\n//# sourceURL=webpack://gritmail/./src/menu.js?");
 
 /***/ }),
 
@@ -252,7 +252,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = __webpack_require__("./src/display.js");
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/menu.js");
 /******/ 	
 /******/ })()
 ;
