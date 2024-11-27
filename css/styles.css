@@ -75,9 +75,9 @@ body {
     font-weight: bold;            /* Bold text */
     text-transform: uppercase;    /* Uppercase letters (optional) */
     cursor: pointer;             /* Changes the cursor to a pointer on hover */
-  }
+}
 
-  .landingBtn:hover2 {
+.landingBtn2:hover {
     background-color: red;
     color: white;
 }

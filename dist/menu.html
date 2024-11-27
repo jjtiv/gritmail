@@ -4,14 +4,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../css/menu.css">
 </head>
 <body>
+
+    <div class="navbar">
+        <div class="logo">
+            <a href="index.html" id="navText">
+                <img src="../css/images/paw.png" alt="paw" id="navLogo">
+                Gritmail
+            </a>
+        </div>
+        <div class="accountBtns">
+            <div class="cartContainer">
+                <img class="itemcart" src="../css/images/cart.png" alt="cart">
+                <span id="cartCount" class="cartCount">0</span>
+            </div>
+            <button id="checkoutBtn">Checkout</button>
+            <p id="message"></p>
+        </div>
+    </div>
+    <div class="navigation">
+        <a href="display.html" class="navLink">Next</a>
+        <a href="menu.html" class="navLink">Today's Menu</a>
+        <a href="mealPeriod.html" class="navLink">Meal Periods</a>
+        <a href="#" class="navLink">About Us!</a>
+        <a href="#" class="navLink">Account</a>
+        <a href="#" class="navLink">Order History</a>
+    </div>
+
+    <div>
+        <button id="sunBtn">sun</button>
+        <button id="monBtn">mon</button>
+        <button id="tueBtn">tues</button>
+        <button id="wedBtn">wed</button>
+        <button id="thuBtn">thur</button>
+        <button id="friBtn">fri</button>
+        <button id="satBtn">sat</button>
+    </div>
     
     <h1>Today's Menu</h1>
     <h2 id="todaysDay">Empty</h2>
     <ul id="menu-list"></ul>
 
-    <a href="index.html">Go back</a>
+    <h1>Breakfast</h1>
+    <ul id="breakfast-list"></ul>
+
+    <h1>Lunch</h1>
+    <ul id="lunch-list"></ul>
+
+    <h1>Dinner</h1>
+    <ul id="dinner-list"></ul>
+
+    <!-- Modal Structure -->
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+            <h2>Order Item</h2>
+            <p id="modalItemDetails"></p>
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" min="1" value="1">
+            <div class="modal-actions">
+                <button id="confirmOrderButton">Confirm Order</button>
+                <button id="closeModalButton">Cancel</button>
+            </div>
+        </div>
+    </div>
+  
+
+
+    <div style="display: inline-block; height: 100px;"></div>
+    <footer>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus hic necessitatibus quos illum error recusandae, quibusdam perspiciatis adipisci ex molestias animi non? Odio nihil at illum tempore nobis nam enim.</p>
+    </footer>
 
     <script src="menu.bundle.js"></script>
 </body>
