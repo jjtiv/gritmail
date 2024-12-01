@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Gritmail - Menu</title>
     <link rel="stylesheet" href="../css/menu.css">
+    <link rel="icon" type="image/x-icon" href="../css/images/favicon.ico">
 </head>
 <body>
 
@@ -20,41 +21,71 @@
                 <img class="itemcart" src="../css/images/cart.png" alt="cart">
                 <span id="cartCount" class="cartCount">0</span>
             </div>
-            <button id="checkoutBtn">Checkout</button>
+            <button id="checkoutBtn" class="landingBtn2">Checkout</button>
             <p id="message"></p>
+            <button id="logoutBtn" class="landingBtn2">Logout</button>
         </div>
     </div>
     <div class="navigation">
-        <a href="display.html" class="navLink">Next</a>
         <a href="menu.html" class="navLink">Today's Menu</a>
         <a href="mealPeriod.html" class="navLink">Meal Periods</a>
-        <a href="#" class="navLink">About Us!</a>
-        <a href="#" class="navLink">Account</a>
-        <a href="#" class="navLink">Order History</a>
+        <a href="aboutUs.html" class="navLink">About Us!</a>
+        <a href="account.html" class="navLink">Account</a>
     </div>
 
-    <div>
-        <button id="sunBtn">sun</button>
-        <button id="monBtn">mon</button>
-        <button id="tueBtn">tues</button>
-        <button id="wedBtn">wed</button>
-        <button id="thuBtn">thur</button>
-        <button id="friBtn">fri</button>
-        <button id="satBtn">sat</button>
+    
+    <div class="menu-banner">
+        <div class="menu-banner-overlay">
+          <h1 class="menu-title" id="todaysDay">Menu</h1>
+          <div class="menu-decorator"></div>
+        </div>
+    </div>
+      
+
+
+
+
+
+    <div class="menu-container">
+    <div class="image-container">
+      <img src="../css/images/brekkieImg.jpg" alt="Platter" class="platter-image">
+    </div>
+    <div class="menu-details">
+      <h1>Breakfast</h1>
+      <ul id="brekkie-list" class="menu-list">
+        <!-- Menu items will be dynamically added here -->
+      </ul>
+    </div>
+  </div>
+
+
+
+
+    <div class="menu-container">
+        <div class="menu-details">
+          <h1>Lunch</h1>
+          <ul id="lunch-list" class="menu-list">
+            <!-- Menu items will be dynamically added here -->
+          </ul>
+        </div>
+        <div class="image-container">
+            <img src="../css/images/lunchImg.jpg" alt="Platter" class="platter-image">
+          </div>
     </div>
     
-    <h1>Today's Menu</h1>
-    <h2 id="todaysDay">Empty</h2>
-    <ul id="menu-list"></ul>
 
-    <h1>Breakfast</h1>
-    <ul id="breakfast-list"></ul>
-
-    <h1>Lunch</h1>
-    <ul id="lunch-list"></ul>
-
-    <h1>Dinner</h1>
-    <ul id="dinner-list"></ul>
+    <div class="menu-container">
+        <div class="image-container">
+          <img src="../css/images/dinnerImg.jpg" alt="Platter" class="platter-image">
+        </div>
+        <div class="menu-details">
+          <h1>Dinner</h1>
+          <ul id="dinner-list" class="menu-list">
+            <!-- Menu items will be dynamically added here -->
+          </ul>
+        </div>
+    </div>
+   
 
     <!-- Modal Structure -->
     <div id="orderModal" class="modal">
@@ -69,7 +100,27 @@
             </div>
         </div>
     </div>
+
+
+
+
+
+
+
+    <div>
+        <button id="sunBtn">sun</button>
+        <button id="monBtn">mon</button>
+        <button id="tueBtn">tues</button>
+        <button id="wedBtn">wed</button>
+        <button id="thuBtn">thur</button>
+        <button id="friBtn">fri</button>
+        <button id="satBtn">sat</button>
+    </div>
+
   
+
+
+
 
 
     <div style="display: inline-block; height: 100px;"></div>

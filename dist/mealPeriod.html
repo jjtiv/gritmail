@@ -3,32 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meal Period</title>
+    <title>Gritmail - Meal Period</title>
     <link rel="stylesheet" href="../css/mealPeriod.css">
+    <link rel="icon" type="image/x-icon" href="../css/images/favicon.ico">
 </head>
 <body>
-    <table border="1">
-        <thead>
-            <tr>
-                <th>Header 1</th>
-                <th>Header 2</th>
-                <th>Header 3</th>
-                <th>Header 4</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Row 1, Col 1</td>
-                <td>Row 1, Col 2</td>
-                <td>Row 1, Col 3</td>
-                <td>Row 1, Col 4</td>
-            </tr>
-            <tr>
-                <td>Row 2, Col 1</td>
-                <td>Row 2, Col 2</td>
-                <td>Row 2, Col 3</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="navbar">
+        <div class="logo">
+            <a href="index.html" id="navText">
+                <img src="../css/images/paw.png" alt="paw" id="navLogo">
+                Gritmail
+            </a>
+        </div>
+        <div class="accountBtns">
+            <p id="message"></p>
+            <button id="logoutBtn" class="landingBtn2">Logout</button>
+        </div>
+    </div>
+    <div class="navigation">
+        <a href="menu.html" class="navLink">Today's Menu</a>
+        <a href="mealPeriod.html" class="navLink">Meal Periods</a>
+        <a href="aboutUs.html" class="navLink">About Us!</a>
+        <a href="account.html" class="navLink">Account</a>
+    </div>
+
+
+    <div class="meal-periods">
+        <h2>UMBC Meal Periods</h2>
+        <div class="meal-period">
+            <h3>🍳 Breakfast</h3>
+            <p>6:00 AM – 10:59 AM</p>
+        </div>
+        <div class="meal-period">
+            <h3>🥪 Lunch</h3>
+            <p>11:00 AM – 3:59 PM</p>
+        </div>
+        <div class="meal-period">
+            <h3>🍽️ Dinner</h3>
+            <p>4:00 PM – 7:59 PM</p>
+        </div>
+        <div class="meal-period">
+            <h3>🌙 Late Night</h3>
+            <p>8:00 PM – 2:59 AM</p>
+        </div>
+        <p class="note">
+            Students can use one meal per period unless they have Flexible 10 or 14 meal plans, which allow for multiple swipes per meal zone.
+        </p>
+    </div>
+    
+
+
+
+
+
+    <footer>
+        <a href="aboutUs.html" style="margin-right: 15px; text-decoration: none; color: #fff;">About Us</a>
+        <a href="account.html" style="text-decoration: none; color: #fff;">Help Center</a>
+        <p>© 2024 GritMail Inc. All rights reserved. GritMail is your trusted partner for campus food ordering.</p>
+        <p>Designed with 💪 and 🧡 by the GritMail Team. | <a href="mailto:jonast1@umbc.edu" style="text-decoration: none; color: #fff;">Contact Support</a></p>
+    </footer>
+    <script src="mealPeriod.bundle.js"></script>
 </body>
 </html>

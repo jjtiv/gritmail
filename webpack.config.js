@@ -4,9 +4,11 @@ module.exports = {
     mode: 'development',
     entry: {
         index: './src/index.js',
-        display: './src/display.js',
         menu:   './src/menu.js',
-        checkout:   './src/checkout.js'
+        checkout:   './src/checkout.js',
+        aboutUs:    './src/aboutUs.js',
+        mealPeriod: './src/mealPeriod.js',
+        account:    './src/account.js'
       },
     output: {
         filename: '[name].bundle.js',

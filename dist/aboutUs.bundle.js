@@ -50,13 +50,13 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-/***/ "./src/display.js":
+/***/ "./src/aboutUs.js":
 /*!************************!*\
-  !*** ./src/display.js ***!
+  !*** ./src/aboutUs.js ***!
   \************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _firebaseConfig_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./firebaseConfig.js */ \"./src/firebaseConfig.js\");\n/* harmony import */ var _firebase_auth__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @firebase/auth */ \"./node_modules/@firebase/auth/dist/esm2017/index.js\");\n/* harmony import */ var firebase_firestore__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! firebase/firestore */ \"./node_modules/firebase/firestore/dist/esm/index.esm.js\");\n\r\n\r\n\r\n\r\n\r\n//logout\r\ndocument.getElementById('logoutBtn').onclick = function(event){\r\n    (0,_firebase_auth__WEBPACK_IMPORTED_MODULE_1__.signOut)(_firebaseConfig_js__WEBPACK_IMPORTED_MODULE_0__.auth)\r\n    .then(() => {\r\n      // Successfully logged out\r\n      document.getElementById('message').innerHTML = \"You have logged out.\";\r\n    })\r\n    .catch((error) => {\r\n      // Handle any errors during logout\r\n      console.error(\"Error logging out:\", error.message);\r\n      document.getElementById('message').innerText = \"Error logging out.\";\r\n    });\r\n}\r\n\r\nasync function getMenu() {\r\n  const today = new Date();\r\n  const dayOfWeek = today.getDay(); // Get current day (0 = Sunday, 1 = Monday, etc.)\r\n\r\n  // Map JavaScript days to Firestore document names\r\n  const daysOfWeek = [\"sunday\", \"monday\", \"tuesday\", \"wednesday\", \"thursday\", \"friday\", \"saturday\"];\r\n  const dayName = daysOfWeek[dayOfWeek]; // Get the name of the current day\r\n\r\n  try {\r\n    // Get the document for the current day from Firestore\r\n    const docRef = (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.doc)(_firebaseConfig_js__WEBPACK_IMPORTED_MODULE_0__.db, \"menus\", dayName); // Reference to the day's document\r\n    const docSnap = await (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.getDoc)(docRef); // Fetch the document\r\n\r\n    if (docSnap.exists()) {\r\n      // If the document exists, display the menu\r\n      const menu = docSnap.data().menu;\r\n      const menuList = document.getElementById('menu-list');\r\n      menuList.innerHTML = \"\"; // Clear any existing menu items\r\n      menu.forEach(item => {\r\n        const li = document.createElement('li');\r\n        li.textContent = item;\r\n        menuList.appendChild(li);\r\n      });\r\n    } else {\r\n      console.log(\"No menu available for today.\");\r\n    }\r\n  } catch (error) {\r\n    console.error(\"Error fetching the menu: \", error);\r\n  }\r\n}\r\n\r\n// Call the function to display the menu on page load\r\nwindow.onload = getMenu;\n\n//# sourceURL=webpack://gritmail/./src/display.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _firebaseConfig__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./firebaseConfig */ \"./src/firebaseConfig.js\");\n/* harmony import */ var firebase_auth__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! firebase/auth */ \"./node_modules/firebase/auth/dist/esm/index.esm.js\");\n\r\n\r\n\r\n(0,firebase_auth__WEBPACK_IMPORTED_MODULE_1__.onAuthStateChanged)(_firebaseConfig__WEBPACK_IMPORTED_MODULE_0__.auth, (user) => {\r\n    if (user) {\r\n      // Display a greeting with the user's email\r\n      document.getElementById('message').style.display = \"inline\";\r\n      document.getElementById('message').innerHTML = `Welcome, ${user.email}!`;\r\n  \r\n    }\r\n  });\r\n\r\ndocument.getElementById('logoutBtn').onclick = function(event){\r\n    (0,firebase_auth__WEBPACK_IMPORTED_MODULE_1__.signOut)(_firebaseConfig__WEBPACK_IMPORTED_MODULE_0__.auth)\r\n    .then(() => {\r\n      // Successfully logged out\r\n      window.location.href = \"index.html\"\r\n    })\r\n    .catch((error) => {\r\n      // Handle any errors during logout\r\n      console.error(\"Error logging out:\", error.message);\r\n    });\r\n}\r\n\r\n\n\n//# sourceURL=webpack://gritmail/./src/aboutUs.js?");
 
 /***/ }),
 
@@ -252,7 +252,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = __webpack_require__("./src/display.js");
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/aboutUs.js");
 /******/ 	
 /******/ })()
 ;

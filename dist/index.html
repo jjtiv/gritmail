@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gritmail</title>
+    <title>Gritmail - Home</title>
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="icon" type="image/x-icon" href="../css/images/favicon.ico">
 </head>
 <body>
 
@@ -24,15 +25,14 @@
             <p id="message"></p>
             <button id="signupBtn" class="landingBtn2">Sign Up</button>
             <button id="loginBtn" class="landingBtn2">Login</button>
+            <button id="logoutBtn" class="landingBtn2">Logout</button>
         </div>
     </div>
     <div class="navigation">
-        <a href="display.html" class="navLink">Next</a>
         <a href="menu.html" class="navLink">Today's Menu</a>
         <a href="mealPeriod.html" class="navLink">Meal Periods</a>
-        <a href="#" class="navLink">About Us!</a>
-        <a href="#" class="navLink">Account</a>
-        <a href="#" class="navLink">Order History</a>
+        <a href="aboutUs.html" class="navLink">About Us!</a>
+        <a href="account.html" class="navLink">Account</a>
     </div>
 
 
@@ -47,6 +47,8 @@
                 <input type="password" id="login-password" required><br>
 
                 <a href="#" class="forgot-password">Forgot Password?</a>
+                <p id="resetError" style="color: red; display: none;"></p>
+                <p id="resetSuccess" style="color: green; display: none;">Password reset link sent!</p>
 
                 <button type="submit">Submit</button>
             </form>
@@ -75,61 +77,74 @@
             </form>
         </div>
     </div>
-    <div class="infoContainerLeft">
-        <div class="infoTextLeft">
-            <p class="infoHeaderLeft">Order Online</p>
-            <p>Order online or with a mobile device using this website.</p>
+
+    <div class="desc">
+        <div class="infoContainerLeft">
+            <div class="infoTextLeft">
+                <p class="infoHeaderLeft">Order Online</p>
+                <p>Order online or with a mobile device using this website.</p>
+            </div>
+            <div class="infoImgLeft">
+                <img src="../css/images/OnlineOrder2.jpg" alt="onlineOrder">
+            </div>
         </div>
-        <div class="infoImgLeft">
-            <img src="../css/images/steak.jpg" alt="steak">
+
+        <div class="infoContainerRight">
+            <div class="infoImgRight">
+                <img src="../css/images/prepFood.jpg" alt="prep">
+            </div>
+            <div class="infoTextRight">
+                <p class="infoHeaderLeft">Prepared</p>
+                <p>An employee will prepare and box your order.</p>
+            </div>
         </div>
+    
+        <div class="infoContainerLeft">
+            <div class="infoTextLeft">
+                <p class="infoHeaderLeft">Pickup at Location</p>
+                <p>Show your order number to the counter and collect your food.</p>
+            </div>
+            <div class="infoImgLeft">
+                <img src="../css/images/readyFood.jpg" alt="ready">
+            </div>
+        </div>
+    
+        <div class="infoContainerRight">
+            <div class="infoImgRight">
+                <img src="../css/images/enjoyFood.jpg" alt="enjoy">
+            </div>
+            <div class="infoTextRight">
+                <p class="infoHeaderLeft">Enjoy!</p>
+                <p>Enjoy UMBC's finest cuisine without the hassle!</p>
+            </div>
+        </div>
+        
     </div>
 
-    <div class="infoContainerRight">
-        <div class="infoImgRight">
-            <img src="../css/images/steak.jpg" alt="steak">
-        </div>
-        <div class="infoTextRight">
-            <p class="infoHeaderLeft">Prepared</p>
-            <p>An employee will prepare and box your order.</p>
-        </div>
-    </div>
 
-    <div class="infoContainerLeft">
-        <div class="infoTextLeft">
-            <p class="infoHeaderLeft">Pickup at Location</p>
-            <p>Show your order number to the counter and collect your food.</p>
-        </div>
-        <div class="infoImgLeft">
-            <img src="../css/images/steak.jpg" alt="steak">
-        </div>
-    </div>
 
-    <div class="infoContainerRight">
-        <div class="infoImgRight">
-            <img src="../css/images/steak.jpg" alt="steak">
-        </div>
-        <div class="infoTextRight">
-            <p class="infoHeaderLeft">Enjoy!</p>
-            <p>Enjoy UMBC's finest cuisine!</p>
-        </div>
-    </div>
     <div class="overlay">
         <div>
-            <img src="../css/images/temp.jpeg" alt="field" id="getStartImg">
+            <img src="../css/images/meet.png" alt="field" id="getStartImg">
             <div class="text-overlay2">Gritmail</div>
             <div class="text-overlay-desc2">A streamlined food pick-up service for UMBC students</div>
             <div class="button-container">
-                <button class="order-now-btn">Order Now</button>
+                <button class="order-now-btn" id="orderNowbtn">Order Now</button>
             </div>
         </div>
     </div>
 
-    <div style="display: inline-block; height: 500px;"></div>
+    
+    <div id="bottomDrawingDiv">
+        <img src="../css/images/bottomThing.png" alt="Drawing" id="bottomDrawing">
+    </div>
 
 
     <footer>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus hic necessitatibus quos illum error recusandae, quibusdam perspiciatis adipisci ex molestias animi non? Odio nihil at illum tempore nobis nam enim.</p>
+        <a href="aboutUs.html" style="margin-right: 15px; text-decoration: none; color: #fff;">About Us</a>
+        <a href="account.html" style="text-decoration: none; color: #fff;">Help Center</a>
+        <p>© 2024 GritMail Inc. All rights reserved. GritMail is your trusted partner for campus food ordering.</p>
+        <p>Designed with 💪 and 🧡 by the GritMail Team. | <a href="mailto:jonast1@umbc.edu" style="text-decoration: none; color: #fff;">Contact Support</a></p>
     </footer>
 
     <script src="index.bundle.js"></script>

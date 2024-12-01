@@ -1,3 +1,220 @@
 body{
+    margin: 0;
+    background: url('../css/images/foodVec.png') no-repeat center center fixed; /* Background image */
+    background-size: cover;
     background-color: rgb(243, 153, 153);
+}
+
+.navbar{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 20px;
+    background-color: #333;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+
+.navbar .logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.navbar .button-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.navbar #navText{
+    text-decoration: none;
+    color: #fff;
+    display: flex; /* Makes the text and image align horizontally */
+    align-items: center;
+}
+.navbar #navLogo{
+    width: 25px;
+    height: auto;
+    padding-bottom: 4px;
+    padding-right: 4px;
+}
+
+#message{
+    padding: 0%;
+    margin: 0%;
+}
+
+.navigation{
+    display: flex;
+    width: 100%;
+    padding: 10px 20px;
+    background-color: #545252;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    gap: 40px;
+    
+}
+
+.navigation .navLink{
+    text-decoration: none; /* Removes underline */
+    color: #fff; /* Sets the text color to black */    
+}
+
+footer{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    background-color: #333;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    gap: 40px;
+}
+
+.accountBtns {
+    display: flex; /* Align items horizontally */
+    align-items: center; /* Vertically align items */
+    gap: 10px; /* Add spacing between the cart and the message */
+}
+
+.cartContainer {
+    position: relative; /* Enables positioning for the badge */
+    display: inline-block; /* Keep the image and badge together */
+    padding-right: 20px;
+    
+}
+
+.itemcart {
+    width: 24px; /* Adjust cart image size */
+    height: 24px;
+}
+
+.cartCount {
+    position: absolute;
+    top: 0px; /* Adjust the position to move the badge over the cart */
+    right: 12px;
+    background-color: red;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 50%;
+    padding: 2px 6px;
+    transform: translate(50%, -50%); /* Adjust badge position */
+}
+
+
+#checkoutBtn{
+    background-color: white;      /* White background for the button */
+    color: red;                   /* Red text color */
+    border: 0px solid red;        /* Red border */
+    border-radius: 25px;          /* Rounded corners for pill shape */
+    padding: 10px 30px;           /* Adds padding (adjust for size) */
+    font-size: 16px;              /* Text size */
+    font-weight: bold;            /* Bold text */
+    text-transform: uppercase;    /* Uppercase letters (optional) */
+    cursor: pointer;             /* Changes the cursor to a pointer on hover */
+}
+
+#checkoutBtn:hover {
+    background-color: red;
+    color: white;
+}
+
+/* Container styling */
+.meal-periods {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+}
+
+/* Heading styles */
+.meal-periods h2 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+/* Individual meal period styles */
+.meal-period {
+    margin: 15px 0;
+    padding: 10px;
+    background: #ffffff;
+    border-radius: 8px;
+    border: 1px solid #ececec;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    align-items: center; /* Aligns content vertically within the meal period card */
+    justify-content: center;
+}
+
+.meal-period:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Meal period title */
+.meal-period h3 {
+    font-size: 1.5em;
+    color: #444;
+    margin-bottom: 5px;
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove any default padding */
+    display: inline-block; 
+}
+
+/* Meal period time */
+.meal-period p {
+    font-size: 1.2em;
+    color: #666;
+    margin: 0;
+    padding-left: 10px;
+}
+
+/* Note styling */
+.note {
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #555;
+    line-height: 1.5;
+    background: #fff5d9;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #f4e2b4;
+}
+
+.accountBtns{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.landingBtn2{
+    background-color: white;      /* White background for the button */
+    color: red;                   /* Red text color */
+    border: 0px solid red;        /* Red border */
+    border-radius: 25px;          /* Rounded corners for pill shape */
+    padding: 10px 30px;           /* Adds padding (adjust for size) */
+    font-size: 16px;              /* Text size */
+    font-weight: bold;            /* Bold text */
+    text-transform: uppercase;    /* Uppercase letters (optional) */
+    cursor: pointer;             /* Changes the cursor to a pointer on hover */
+}
+
+.landingBtn2:hover {
+    background-color: red;
+    color: white;
 }

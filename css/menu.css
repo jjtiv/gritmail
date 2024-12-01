@@ -1,5 +1,9 @@
 body{
+    background-color: #F5F5F7;
     margin: 0;
+    background: url('../css/images/foodVec.png') no-repeat center center fixed; /* Background image */
+    background-size: cover;
+  background-color: rgb(255, 171, 171);
 }
 
 .navbar{
@@ -132,3 +136,169 @@ footer{
     transform: translate(50%, -50%); /* Adjust badge position */
 }
 
+
+
+/* Wrapper for the entire menu container */
+.menu-container {
+    display: flex;
+    max-width: 1200px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    margin: 30px auto;
+    background-color: white;
+    margin-bottom: 50px;
+  }
+  
+  /* Image section */
+  .image-container {
+    flex: 1;
+    display: inline-flex;
+  }
+  
+  .platter-image {
+    width: 100%; /* Makes the image take full width of the container */
+    height: 800px; /* Set a consistent height for all images */
+    
+  }
+  
+  /* Menu details section */
+  .menu-details {
+    flex: 1;
+    padding: 30px;
+  }
+  
+  .menu-details h1 {
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+  }
+  
+  /* List styling */
+  .menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Individual menu items */
+  .menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #ddd;
+  }
+  
+  .menu-text {
+    flex: 2; /* Take the majority of space */
+    margin-right: 20px; /* Adds spacing between text and price/button */
+  }
+  
+  .menu-text h2 {
+    font-size: 22px;
+    margin: 0 0 5px;
+  }
+  
+  .menu-text p {
+    font-family: 'Georgia', serif;
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+  }
+  
+  /* Price alignment */
+  .menu-price {
+    flex: 0 0 80px;
+    font-family: 'Georgia', serif;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: right;
+    padding-right: 10px;
+  }
+  
+  /* Button styling */
+  button {
+    flex: 0 0 80px;
+    background-color: #938181;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  button:hover {
+    background-color: #ffbdbd;
+    transition: background-color 0.3s ease;
+  }
+  
+
+  .menu-banner {
+    position: relative;
+    background-image: url('../css/images/cafe-interior.webp'); /* Replace with your banner image */
+    background-size: cover; /* Ensures the image covers the container */
+    background-position: top; /* Centers the image */
+    height: 400px; /* Set the desired height of the banner */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 100px;
+    border-bottom: 20px solid #545252;
+  }
+  
+  .menu-banner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Adds a dark overlay with transparency */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .menu-title {
+    color: #fff;
+    font-size: 48px;
+    font-family: 'Georgia', serif;
+    text-align: center;
+    margin: 0;
+  }
+  
+  .menu-decorator {
+    margin-top: 10px;
+    width: 200px; /* Length of the decorative line */
+    height: 2px; /* Thickness of the line */
+    background: #fff; /* Line color */
+    border-radius: 1px;
+  }
+  
+
+
+
+.landingBtn2{
+    background-color: white;      /* White background for the button */
+    color: red;                   /* Red text color */
+    border: 0px solid red;        /* Red border */
+    border-radius: 25px;          /* Rounded corners for pill shape */
+    padding: 10px 30px;           /* Adds padding (adjust for size) */
+    font-size: 16px;              /* Text size */
+    font-weight: bold;            /* Bold text */
+    text-transform: uppercase;    /* Uppercase letters (optional) */
+    cursor: pointer;             /* Changes the cursor to a pointer on hover */
+}
+
+.landingBtn2:hover {
+    background-color: red;
+    color: white;
+}

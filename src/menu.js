@@ -1,6 +1,6 @@
 import { db, auth } from "./firebaseConfig.js";
 import { collection, doc, getDoc, getDocs} from "firebase/firestore";
-import { onAuthStateChanged } from "firebase/auth";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 
   
 // Call the function to display the menu on page load
@@ -19,6 +19,20 @@ onAuthStateChanged(auth, (user) => {
   }
 });
 
+document.getElementById('logoutBtn').onclick = function(event){
+  signOut(auth)
+  .then(() => {
+    // Successfully logged out
+    window.location.href = "index.html"
+  })
+  .catch((error) => {
+    // Handle any errors during logout
+    console.error("Error logging out:", error.message);
+  });
+}
+
+
+
 
 
 async function shiftMenu(day) {
@@ -27,7 +41,8 @@ async function shiftMenu(day) {
   // Map JavaScript days to Firestore document names
   const daysOfWeek = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
   const dayName = daysOfWeek[dayOfWeek]; // Get the name of the current day
-  document.getElementById("todaysDay").textContent = dayName;
+
+  document.getElementById("todaysDay").textContent = `${dayName.charAt(0).toUpperCase()}${dayName.slice(1)}'s Menu`;
 
   try {
     // Reference the "breakfast" subcollection for the given day
@@ -42,53 +57,161 @@ async function shiftMenu(day) {
 
     if (!breakfastSnapshot.empty && !lunchSnapshot.empty && !dinnerSnapshot.empty) {
       // If the subcollection contains documents, display the menu
-      const breakList = document.getElementById('breakfast-list');
-      breakList.innerHTML = ""; // Clear any existing menu items
 
-      const lunchList = document.getElementById('lunch-list');
-      lunchList.innerHTML = ""; // Clear any existing menu items
 
-      const dinnerList = document.getElementById('dinner-list');
-      dinnerList.innerHTML = ""; // Clear any existing menu items
 
+      
+
+
+      const breakList2 = document.getElementById('brekkie-list'); // Get the UL container
+      breakList2.innerHTML = ""; // Clear any existing menu items
+
+      // Mock Firebase snapshot iteration function
       breakfastSnapshot.forEach(doc => {
         const item = doc.data(); // Get the data for each document
-        const li = document.createElement('li');
-        li.textContent = ` ${item.Food} - ${item.Desc} - $${item.Price}`;// Display description and cost
+        const formattedPrice = `${parseFloat(item.Price).toFixed(2)}`;
 
-        const button = document.createElement("button");
-        button.textContent = "Order";
-        button.onclick = () => handleOrder(item);
+        // Create the LI container for the menu item
+        const li = document.createElement('li');
+        li.classList.add('menu-item');
+
+        // Create a div for text content
+        const menuText = document.createElement('div');
+        menuText.classList.add('menu-text');
+
+        // Create and populate the food name
+        const foodName = document.createElement('h2');
+        foodName.textContent = item.Food;
+
+        // Create and populate the description
+        const foodDesc = document.createElement('p');
+        foodDesc.textContent = item.Desc;
+
+        // Add the name and description to the menuText div
+        menuText.appendChild(foodName);
+        menuText.appendChild(foodDesc);
+
+        // Create and populate the price
+        const price = document.createElement('span');
+        price.classList.add('menu-price');
+        price.textContent = `$${formattedPrice}`;
+
+        // Create the order button
+        const button = document.createElement('button');
+        button.textContent = 'Order';
+        button.onclick = () => handleOrder(item); // Attach the click handler
+
+        // Assemble the LI item
+        li.appendChild(menuText);
+        li.appendChild(price);
         li.appendChild(button);
 
-        breakList.appendChild(li);
+        // Add the item to the menu list
+        breakList2.appendChild(li);
       });
 
-      lunchSnapshot.forEach(doc => {
-        const item = doc.data(); // Get the data for each document
-        const li = document.createElement('li');
-        li.textContent = ` ${item.Food} - ${item.Desc} - $${item.Price}`; // Display description and cost
 
-        const button = document.createElement("button");
-        button.textContent = "Order";
-        button.onclick = () => handleOrder(item);
-        li.appendChild(button);
 
-        lunchList.appendChild(li);
-      });
+      const dinnerList2 = document.getElementById('dinner-list'); // Get the UL container
+      dinnerList2.innerHTML = ""; // Clear any existing menu items
 
+      // Mock Firebase snapshot iteration function
       dinnerSnapshot.forEach(doc => {
         const item = doc.data(); // Get the data for each document
-        const li = document.createElement('li');
-        li.textContent = ` ${item.Food} - ${item.Desc} - $${item.Price}`; // Display description and cost
+        const formattedPrice = `${parseFloat(item.Price).toFixed(2)}`;
 
-        const button = document.createElement("button");
-        button.textContent = "Order";
-        button.onclick = () => handleOrder(item);
+        // Create the LI container for the menu item
+        const li = document.createElement('li');
+        li.classList.add('menu-item');
+
+        // Create a div for text content
+        const menuText = document.createElement('div');
+        menuText.classList.add('menu-text');
+
+        // Create and populate the food name
+        const foodName = document.createElement('h2');
+        foodName.textContent = item.Food;
+
+        // Create and populate the description
+        const foodDesc = document.createElement('p');
+        foodDesc.textContent = item.Desc;
+
+        // Add the name and description to the menuText div
+        menuText.appendChild(foodName);
+        menuText.appendChild(foodDesc);
+
+        // Create and populate the price
+        const price = document.createElement('span');
+        price.classList.add('menu-price');
+        price.textContent = `$${formattedPrice}`;
+
+        // Create the order button
+        const button = document.createElement('button');
+        button.textContent = 'Order';
+        button.onclick = () => handleOrder(item); // Attach the click handler
+
+        // Assemble the LI item
+        li.appendChild(menuText);
+        li.appendChild(price);
         li.appendChild(button);
-        
-        dinnerList.appendChild(li);
+
+        // Add the item to the menu list
+        dinnerList2.appendChild(li);
       });
+
+
+      const lunchList2 = document.getElementById('lunch-list'); // Get the UL container
+      lunchList2.innerHTML = ""; // Clear any existing menu items
+
+      // Mock Firebase snapshot iteration function
+      lunchSnapshot.forEach(doc => {
+        const item = doc.data(); // Get the data for each document
+        const formattedPrice = `${parseFloat(item.Price).toFixed(2)}`;
+
+        // Create the LI container for the menu item
+        const li = document.createElement('li');
+        li.classList.add('menu-item');
+
+        // Create a div for text content
+        const menuText = document.createElement('div');
+        menuText.classList.add('menu-text');
+
+        // Create and populate the food name
+        const foodName = document.createElement('h2');
+        foodName.textContent = item.Food;
+
+        // Create and populate the description
+        const foodDesc = document.createElement('p');
+        foodDesc.textContent = item.Desc;
+
+        // Add the name and description to the menuText div
+        menuText.appendChild(foodName);
+        menuText.appendChild(foodDesc);
+
+        // Create and populate the price
+        const price = document.createElement('span');
+        price.classList.add('menu-price');
+        price.textContent = `$${formattedPrice}`;
+
+        // Create the order button
+        const button = document.createElement('button');
+        button.textContent = 'Order';
+        button.onclick = () => handleOrder(item); // Attach the click handler
+
+        // Assemble the LI item
+        li.appendChild(menuText);
+        li.appendChild(price);
+        li.appendChild(button);
+
+        // Add the item to the menu list
+        lunchList2.appendChild(li);
+      });
+
+
+
+
+
+      
     } else {
       console.log("No breakfast menu available for today.");
     }

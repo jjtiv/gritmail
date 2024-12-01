@@ -72,3 +72,8 @@ async function checkoutCart() {
 }
 
 document.getElementById("checkoutButton").addEventListener("click", checkoutCart);
+
+document.getElementById("cancelBtn").onclick = function(){
+    localStorage.removeItem("cart");
+    window.location.href = "menu.html";
+}

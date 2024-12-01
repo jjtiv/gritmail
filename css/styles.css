@@ -1,6 +1,8 @@
 body {
     background-color: #F5F5F7;
     margin: 0;
+    background: url('../css/images/foodVec.png') no-repeat center center fixed; /* Background image */
+    background-size: cover;
   
 }
 
@@ -65,10 +67,16 @@ body {
     color: white;
 }
 
+.accountBtns{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
 .landingBtn2{
     background-color: white;      /* White background for the button */
     color: red;                   /* Red text color */
-    border: 2px solid red;        /* Red border */
+    border: 0px solid red;        /* Red border */
     border-radius: 25px;          /* Rounded corners for pill shape */
     padding: 10px 30px;           /* Adds padding (adjust for size) */
     font-size: 16px;              /* Text size */
@@ -81,6 +89,8 @@ body {
     background-color: red;
     color: white;
 }
+
+
   
 
 .navbar{
@@ -176,7 +186,8 @@ body {
 
 /* Input fields */
 .modal-content input[type="email"],
-.modal-content input[type="password"] {
+.modal-content input[type="password"],
+.modal-content input[type="text"] {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
@@ -227,6 +238,8 @@ body {
     color: #246d24;
 }
   
+
+
 .infoContainerLeft{
     display: flex;
     justify-self: center;
@@ -235,31 +248,7 @@ body {
     overflow: hidden;
 }
 
-.infoImgLeft{
-    width: 100%;
-    height: auto;
-    display: inline-flex;
-    justify-content: flex-end;
-}
 
-.infoHeaderLeft{
-    font-size: 200%;
-    font-weight: bold;
-    margin-bottom: 0%;
-}
-
-.infoTextLeft{
-    margin: 0;
-    font-size: 150%;
-    color: #F44322;
-    display: flex; /* Enable flexbox for the text container */
-    flex-direction: column; /* Stack the paragraphs vertically */
-    justify-content: center; /* Center vertically */
-    align-items: center; /* Center horizontally */
-    text-align: center; /* Ensure text alignment is centered */
-    width: 50%; /* Optional: Adjust width if needed */
-    margin-left: 5%;
-}
 
 .infoContainerRight{
     display: flex;
@@ -269,37 +258,14 @@ body {
     overflow: hidden;
 }
 
-.infoImgRight{
-    width: 100%;
-    height: auto;
-    display: inline-flex;
-    justify-content: flex-start;
-}
-
-.infoTextRight{
-    margin: 0;
-    font-size: 150%;
-    color: #F44322;
-    display: flex; /* Enable flexbox for the text container */
-    flex-direction: column; /* Stack the paragraphs vertically */
-    justify-content: center; /* Center vertically */
-    align-items: center; /* Center horizontally */
-    text-align: center; /* Ensure text alignment is centered */
-    width: 50%; /* Optional: Adjust width if needed */
-    margin-right: 5%;
-}
-
-.infoHeaderRight{
-    font-size: 200%;
-    font-weight: bold;
-    margin-bottom: 0%;
-}
 
 #getStartImg {
-    width: 100%;
+    width: 100%; /* Change the width to 100% for the image to fill the container */
     height: 500px;
     display: block;
-    opacity: 50%; /* Dim the image */
+    opacity: 1; /* Dim the image */
+    margin: 0 auto; /* Centers the image horizontally */
+    object-fit: cover;
 }
 
 .overlay {
@@ -307,6 +273,7 @@ body {
     position: relative; /* Set as a containing block for absolutely positioned children */
     width: 100%;
     height: 100%; /* Ensure it covers the entire image */
+    background-color: white;
 }
 
 .text-overlay2, .text-overlay-desc2 {
@@ -337,18 +304,18 @@ body {
 }
 
 .order-now-btn {
-    background-color: red;      /* White background for the button */
-    color: white;                   /* Red text color */
+    background-color: rgb(255, 255, 255);      /* White background for the button */
+    color: red;                   /* Red text color */
     border-radius: 25px;          /* Rounded corners for pill shape */
     border: none;
     padding: 10px 30px;           /* Adds padding (adjust for size) */
-    font-size: 16px;              /* Text size */
+    font-size: 25px;              /* Text size */
     font-weight: bold;            /* Bold text */
     cursor: pointer;  
 }
 
 .order-now-btn:hover {
-    background-color: #bd0505; /* Darker green when hovered */
+    background-color: #ecadad; /* Darker green when hovered */
 }
 
 footer{
@@ -361,4 +328,98 @@ footer{
     color: #fff;
     font-family: Arial, sans-serif;
     box-sizing: border-box;
+    gap: 40px;
+}
+
+
+/* Container for description box */
+.desc {
+    background-color: #F44322;
+    width: 80%;
+    justify-self: center;
+    border-radius: 50px;
+    padding: 30px;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center; /* Centers the .infoContainerLeft elements */
+}
+
+/* Individual container for text and image */
+.infoContainerLeft, .infoContainerRight {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 0;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 80%;
+}
+
+.infoContainerLeft:hover, .infoContainerRight:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Styling for text */
+.infoTextLeft, .infoTextRight {
+    max-width: 60%;
+}
+
+.infoHeaderLeft, .infoHeaderRight {
+    font-size: 2em;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+
+
+.infoTextLeft p, .infoTextRight p {
+    font-size: 1.6em;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* Image container styling */
+.infoImgLeft, .infoImgRight {
+    width: 35%;
+    max-height: 250px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.infoImgLeft img, .infoImgRight img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.infoImgLeft img:hover, .infoImgRight img:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+ 
+
+  #bottomDrawing {
+    width: 100%; /* Change the width to 100% for the image to fill the container */
+    display: block;
+    margin: 0 auto; /* Centers the image horizontally */
+}
+
+#bottomDrawingDiv {
+    position: relative; /* Set as a containing block for absolutely positioned children */
+    width: 100%;
+    height: 100%; /* Ensure it covers the entire image */
+    background-color: white;
 }
