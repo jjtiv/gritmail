@@ -6,12 +6,12 @@ import {getFirestore, doc, getDoc, collection, getDocs, where, query} from "fire
 
 async function loadInfo(action) {
     try {
-        console.log(action); // Optional: log the action
+        console.log(action); 
         onAuthStateChanged(auth, async (user) => {
             if (user) {
-                // User is signed in, get the UID
-                const userId = user.uid; // Use Firebase Authentication UID
-                const userDocRef = doc(db, "users", userId); // Reference the user's document in Firestore
+                 
+                const userId = user.uid;  
+                const userDocRef = doc(db, "users", userId);  
                 
                 const userDoc = await getDoc(userDocRef);
                 if (userDoc.exists()) {
@@ -31,7 +31,7 @@ async function loadInfo(action) {
     }
 }
 
-// Function to display user info in the DOM
+ 
 function displayUserInfo(data, action) {
     const userInfoDiv = document.getElementById("mainContent");
     userInfoDiv.innerHTML = `<div class="accountSection">
@@ -49,16 +49,16 @@ document.getElementById('viewInfo').addEventListener('click', function() {
 
 async function loadOrderHistory(action) {
     try {
-        console.log(action); // Optional: log the action
+        console.log(action);  
         onAuthStateChanged(auth, async (user) => {
             if (user) {
-                // User is signed in, get their email
+                 
                 const userEmail = user.email;
 
-                // Query Firestore for orders with matching email
-                const ordersCollection = collection(db, "orders"); // Assuming your orders are in an "orders" collection
-                const q = query(ordersCollection, where("email", "==", userEmail)); // Query by email
-                const querySnapshot = await getDocs(q); // Execute the query
+                 
+                const ordersCollection = collection(db, "orders");  
+                const q = query(ordersCollection, where("email", "==", userEmail));  
+                const querySnapshot = await getDocs(q);  
 
                 if (!querySnapshot.empty) {
                     const orders = [];
@@ -80,10 +80,10 @@ async function loadOrderHistory(action) {
     }
 }
 
-// Function to display order history in the DOM
+ 
 function displayOrderHistory(orders) {
     const orderHistoryDiv = document.getElementById("mainContent");
-    orderHistoryDiv.innerHTML = "<h1>Order History</h1>"; // Clear previous data
+    orderHistoryDiv.innerHTML = "<h1>Order History</h1>";  
 
 
     orders.forEach((order, index) => {
@@ -138,20 +138,20 @@ function loadPass(section) {
 </div>
 `;
 document.getElementById('resetPasswordForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent form from submitting normally
+    event.preventDefault();  
 
     const resetEmail = document.getElementById('resetEmail').value;
 
     const resetError = document.getElementById('resetError');
     const resetSuccess = document.getElementById('resetSuccess');
 
-    // Clear previous messages
+     
     resetError.style.display = 'none';
     resetSuccess.style.display = 'none';
 
     sendPasswordResetEmail(auth, resetEmail).then(() => {
         resetSuccess.style.display = 'block';
-        document.getElementById('resetPasswordForm').reset(); // Reset the form fields
+        document.getElementById('resetPasswordForm').reset();  
     }).catch((error) => {
         resetError.textContent = error.message;
         resetError.style.display = 'block';
@@ -169,11 +169,11 @@ document.getElementById('changePassword').addEventListener('click', function() {
 document.getElementById('logout').addEventListener('click', function() {
     signOut(auth)
     .then(() => {
-      // Successfully logged out
+       
       window.location.href = "index.html"
     })
     .catch((error) => {
-      // Handle any errors during logout
+       
       console.error("Error logging out:", error.message);
     });
 });

@@ -3,7 +3,7 @@ import { collection, doc, getDoc, getDocs} from "firebase/firestore";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 
   
-// Call the function to display the menu on page load
+ 
 const today = new Date();
 const dayOfWeek = today.getDay();
 window.onload = shiftMenu(dayOfWeek);
@@ -12,7 +12,7 @@ window.onload = shiftMenu(dayOfWeek);
 
 onAuthStateChanged(auth, (user) => {
   if (user) {
-    // Display a greeting with the user's email
+     
     document.getElementById('message').style.display = "inline";
     document.getElementById('message').innerHTML = `Welcome, ${user.email}!`;
 
@@ -22,11 +22,11 @@ onAuthStateChanged(auth, (user) => {
 document.getElementById('logoutBtn').onclick = function(event){
   signOut(auth)
   .then(() => {
-    // Successfully logged out
+     
     window.location.href = "index.html"
   })
   .catch((error) => {
-    // Handle any errors during logout
+     
     console.error("Error logging out:", error.message);
   });
 }
@@ -38,172 +38,172 @@ document.getElementById('logoutBtn').onclick = function(event){
 async function shiftMenu(day) {
   const dayOfWeek = day;
 
-  // Map JavaScript days to Firestore document names
+   
   const daysOfWeek = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
-  const dayName = daysOfWeek[dayOfWeek]; // Get the name of the current day
+  const dayName = daysOfWeek[dayOfWeek];  
 
   document.getElementById("todaysDay").textContent = `${dayName.charAt(0).toUpperCase()}${dayName.slice(1)}'s Menu`;
 
   try {
-    // Reference the "breakfast" subcollection for the given day
+     
     const breakfastRef = collection(db, "menus", dayName, "brekkie"); 
-    const breakfastSnapshot = await getDocs(breakfastRef); // Fetch all documents in the subcollection
+    const breakfastSnapshot = await getDocs(breakfastRef);  
 
     const lunchRef = collection(db, "menus", dayName, "lunch"); 
-    const lunchSnapshot = await getDocs(lunchRef); // Fetch all documents in the subcollection
+    const lunchSnapshot = await getDocs(lunchRef);  
 
     const dinnerRef = collection(db, "menus", dayName, "dinner"); 
-    const dinnerSnapshot = await getDocs(dinnerRef); // Fetch all documents in the subcollection
+    const dinnerSnapshot = await getDocs(dinnerRef);  
 
     if (!breakfastSnapshot.empty && !lunchSnapshot.empty && !dinnerSnapshot.empty) {
-      // If the subcollection contains documents, display the menu
+       
 
 
 
       
 
 
-      const breakList2 = document.getElementById('brekkie-list'); // Get the UL container
-      breakList2.innerHTML = ""; // Clear any existing menu items
+      const breakList2 = document.getElementById('brekkie-list');  
+      breakList2.innerHTML = "";  
 
-      // Mock Firebase snapshot iteration function
+       
       breakfastSnapshot.forEach(doc => {
-        const item = doc.data(); // Get the data for each document
+        const item = doc.data();  
         const formattedPrice = `${parseFloat(item.Price).toFixed(2)}`;
 
-        // Create the LI container for the menu item
+         
         const li = document.createElement('li');
         li.classList.add('menu-item');
 
-        // Create a div for text content
+         
         const menuText = document.createElement('div');
         menuText.classList.add('menu-text');
 
-        // Create and populate the food name
+         
         const foodName = document.createElement('h2');
         foodName.textContent = item.Food;
 
-        // Create and populate the description
+         
         const foodDesc = document.createElement('p');
         foodDesc.textContent = item.Desc;
 
-        // Add the name and description to the menuText div
+         
         menuText.appendChild(foodName);
         menuText.appendChild(foodDesc);
 
-        // Create and populate the price
+         
         const price = document.createElement('span');
         price.classList.add('menu-price');
         price.textContent = `$${formattedPrice}`;
 
-        // Create the order button
+         
         const button = document.createElement('button');
         button.textContent = 'Order';
-        button.onclick = () => handleOrder(item); // Attach the click handler
+        button.onclick = () => handleOrder(item);  
 
-        // Assemble the LI item
+         
         li.appendChild(menuText);
         li.appendChild(price);
         li.appendChild(button);
 
-        // Add the item to the menu list
+         
         breakList2.appendChild(li);
       });
 
 
 
-      const dinnerList2 = document.getElementById('dinner-list'); // Get the UL container
-      dinnerList2.innerHTML = ""; // Clear any existing menu items
+      const dinnerList2 = document.getElementById('dinner-list');  
+      dinnerList2.innerHTML = "";  
 
-      // Mock Firebase snapshot iteration function
+       
       dinnerSnapshot.forEach(doc => {
-        const item = doc.data(); // Get the data for each document
+        const item = doc.data();  
         const formattedPrice = `${parseFloat(item.Price).toFixed(2)}`;
 
-        // Create the LI container for the menu item
+         
         const li = document.createElement('li');
         li.classList.add('menu-item');
 
-        // Create a div for text content
+         
         const menuText = document.createElement('div');
         menuText.classList.add('menu-text');
 
-        // Create and populate the food name
+         
         const foodName = document.createElement('h2');
         foodName.textContent = item.Food;
 
-        // Create and populate the description
+         
         const foodDesc = document.createElement('p');
         foodDesc.textContent = item.Desc;
 
-        // Add the name and description to the menuText div
+         
         menuText.appendChild(foodName);
         menuText.appendChild(foodDesc);
 
-        // Create and populate the price
+         
         const price = document.createElement('span');
         price.classList.add('menu-price');
         price.textContent = `$${formattedPrice}`;
 
-        // Create the order button
+         
         const button = document.createElement('button');
         button.textContent = 'Order';
-        button.onclick = () => handleOrder(item); // Attach the click handler
+        button.onclick = () => handleOrder(item);  
 
-        // Assemble the LI item
+         
         li.appendChild(menuText);
         li.appendChild(price);
         li.appendChild(button);
 
-        // Add the item to the menu list
+         
         dinnerList2.appendChild(li);
       });
 
 
-      const lunchList2 = document.getElementById('lunch-list'); // Get the UL container
-      lunchList2.innerHTML = ""; // Clear any existing menu items
+      const lunchList2 = document.getElementById('lunch-list');  
+      lunchList2.innerHTML = "";  
 
-      // Mock Firebase snapshot iteration function
+       
       lunchSnapshot.forEach(doc => {
-        const item = doc.data(); // Get the data for each document
+        const item = doc.data();  
         const formattedPrice = `${parseFloat(item.Price).toFixed(2)}`;
 
-        // Create the LI container for the menu item
+         
         const li = document.createElement('li');
         li.classList.add('menu-item');
 
-        // Create a div for text content
+         
         const menuText = document.createElement('div');
         menuText.classList.add('menu-text');
 
-        // Create and populate the food name
+         
         const foodName = document.createElement('h2');
         foodName.textContent = item.Food;
 
-        // Create and populate the description
+         
         const foodDesc = document.createElement('p');
         foodDesc.textContent = item.Desc;
 
-        // Add the name and description to the menuText div
+         
         menuText.appendChild(foodName);
         menuText.appendChild(foodDesc);
 
-        // Create and populate the price
+         
         const price = document.createElement('span');
         price.classList.add('menu-price');
         price.textContent = `$${formattedPrice}`;
 
-        // Create the order button
+         
         const button = document.createElement('button');
         button.textContent = 'Order';
-        button.onclick = () => handleOrder(item); // Attach the click handler
+        button.onclick = () => handleOrder(item);  
 
-        // Assemble the LI item
+         
         li.appendChild(menuText);
         li.appendChild(price);
         li.appendChild(button);
 
-        // Add the item to the menu list
+         
         lunchList2.appendChild(li);
       });
 
@@ -226,13 +226,13 @@ function updateCartCount(count) {
   cartCountElement.textContent = count;
 }
 
-// Example usage:
-let cartItems = 0; // Initialize the cart with 0 items
+ 
+let cartItems = 0;  
 
-// Simulate adding an item to the cart
+ 
 function addItemToCart(num) {
-  cartItems += num; // Increment the number of items
-  updateCartCount(cartItems); // Update the cart count display
+  cartItems += num;  
+  updateCartCount(cartItems);  
 }
 */
 
@@ -242,49 +242,49 @@ function updateCartCount(count) {
 }
 
 
-let cart = []; // Local array to store cart items
+let cart = [];  
 
-// Function to add items to the cart
+ 
 function addItemToCart(item, quantity) {
-  // Check if the item already exists in the cart
+   
   const existingItem = cart.find(cartItem => cartItem.Food === item.Food);
   
   if (existingItem) {
-    // If item exists, update the quantity
+     
     existingItem.quantity += quantity;
   } else {
-    // If item is new, add it to the cart
+     
     cart.push({ ...item, quantity });
   }
 
-  updateCartCount(getTotalItems()); // Update cart count display
+  updateCartCount(getTotalItems());  
 }
 
-// Function to get the total number of items in the cart
+ 
 function getTotalItems() {
   return cart.reduce((total, cartItem) => total + cartItem.quantity, 0);
 }
 
 
 
-// Function to handle the "Order" button click
+ 
 function handleOrder(item) {
-  // Set item details in the modal
+   
   const modalItemDetails = document.getElementById("modalItemDetails");
   modalItemDetails.textContent = `${item.Food} - ${item.Desc} - $${item.Price}`;
 
-  // Show the modal
+   
   const orderModal = document.getElementById("orderModal");
   orderModal.style.display = "block";
 
-  // Handle confirm button click
+   
   const confirmOrderButton = document.getElementById("confirmOrderButton");
   confirmOrderButton.onclick = () => {
-    const quantity = parseInt(document.getElementById("quantity").value, 10); // Ensure the input is treated as a number
+    const quantity = parseInt(document.getElementById("quantity").value, 10);  
     if (quantity > 0) {
       alert(`Order confirmed for ${quantity} x ${item.Food}`);
-      orderModal.style.display = "none"; // Close the modal
-      // Add logic here to handle order submission (e.g., save to database)
+      orderModal.style.display = "none";  
+       
       addItemToCart(item, quantity);
 
     } else {
@@ -292,14 +292,14 @@ function handleOrder(item) {
     }
   };
 
-  // Handle modal close button
+   
   const closeModalButton = document.getElementById("closeModalButton");
   closeModalButton.onclick = () => {
-    orderModal.style.display = "none"; // Close the modal
+    orderModal.style.display = "none";  
   };
 }
 
-// Close modal when clicking outside of it
+ 
 window.onclick = (event) => {
   const orderModal = document.getElementById("orderModal");
   if (event.target === orderModal) {
@@ -315,10 +315,10 @@ function goToCheckout() {
       return;
   }
 
-  // Save the cart data to localStorage
+   
   localStorage.setItem("cart", JSON.stringify(cart));
 
-  // Redirect to the checkout page
+   
   window.location.href = "checkout.html";
 }
 

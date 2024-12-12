@@ -2,13 +2,13 @@ import { db, auth } from "./firebaseConfig";
 import { collection, addDoc} from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 
-// Retrieve cart data from localStorage
+ 
 const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 
 
 
-// Function to display cart items on the checkout page
+ 
 function displayCartItems() {
     const cartContainer = document.getElementById("cartContainer");
 
@@ -32,17 +32,17 @@ function calculateTotal(cart) {
     }, 0);
 }
 
-// Update the total price on the page
+ 
 function displayTotal() {
-    const totalAmount = calculateTotal(cart); // Get the total price
-    const totalElement = document.getElementById("totalAmount"); // Find the element to display the total
-    totalElement.textContent = `Total: $${totalAmount.toFixed(2)}`; // Format to 2 decimal places
+    const totalAmount = calculateTotal(cart);  
+    const totalElement = document.getElementById("totalAmount");  
+    totalElement.textContent = `Total: $${totalAmount.toFixed(2)}`;  
 }
 
-// Call this function when the page loads or when the cart is updated
+ 
 displayTotal();
 
-// Handle checkout submission
+ 
 async function checkoutCart() {
     if (cart.length === 0) {
         alert("Your cart is empty.");
@@ -50,8 +50,8 @@ async function checkoutCart() {
     }
 
     try {
-        // Example: Send the cart to the database
-        const cartRef = collection(db, "orders"); // Firestore "orders" collection
+         
+        const cartRef = collection(db, "orders");  
         const user = auth.currentUser;
         const userOrder = {
             email: user.email,
@@ -59,10 +59,10 @@ async function checkoutCart() {
             timestamp: new Date().toISOString(),
         };
 
-        await addDoc(cartRef, userOrder); // Add order to Firestore
+        await addDoc(cartRef, userOrder);  
         alert("Checkout successful! Your order has been placed.");
 
-        // Clear localStorage and redirect back to the menu page
+         
         localStorage.removeItem("cart");
         window.location.href = "menu.html";
     } catch (error) {

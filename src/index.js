@@ -11,8 +11,8 @@ import { getFirestore, setDoc, doc, documentId } from 'firebase/firestore';
 
 
 
-//login and signup
-// Get modal and buttons
+ 
+ 
 var loginModal = document.getElementById("loginModal");
 var loginBtn = document.getElementById("loginBtn");
 var signupModal = document.getElementById("signupModal");
@@ -22,11 +22,11 @@ var loginBtnLand = document.getElementById("loginBtnLand");
 
 const signup = async (email, password, firstname, lastname, UMBCID) => {
     try {
-      // Create a new user with email and password
+       
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
   
-      // Store user's name and email in Firestore
+       
       await setDoc(doc(db, 'users', user.uid), {
         email: user.email,
         firstname: firstname,
@@ -47,11 +47,11 @@ const loginUsername = document.getElementById('login-username');
 
 
 
-// Event listener for "Forgot Password?" link
+ 
 forgotPasswordLink.addEventListener('click', (e) => {
-    e.preventDefault(); // Prevent default link behavior
+    e.preventDefault();  
 
-    // Get the email from the input field
+     
     const email = loginUsername.value;
     const resetError = document.getElementById('resetError');
     const resetSuccess = document.getElementById('resetSuccess');
@@ -113,11 +113,11 @@ document.getElementById("orderNowbtn").onclick = function(){
 document.getElementById('logoutBtn').onclick = function(event){
   signOut(auth)
   .then(() => {
-    // Successfully logged out
+     
     document.getElementById('message').innerHTML = "You have logged out.";
   })
   .catch((error) => {
-    // Handle any errors during logout
+     
     console.error("Error logging out:", error.message);
     document.getElementById('message').innerText = "Error logging out.";
   });
@@ -143,14 +143,14 @@ document.getElementById('login-form').addEventListener('submit', (e) => {
 
 
 function toggleItems(user) {
-  const items = document.querySelectorAll('.navLink'); // Select all elements with the class 'item'
+  const items = document.querySelectorAll('.navLink');  
   
-  // Loop through each item and toggle visibility
+   
   items.forEach(item => {
     if (user) {
-      item.style.display = 'block'; // Show item if hidden
+      item.style.display = 'block';  
     } else {
-      item.style.display = 'none'; // Hide item if visible
+      item.style.display = 'none';  
     }
   });
 }
@@ -161,7 +161,7 @@ function toggleItems(user) {
 
 onAuthStateChanged(auth, (user) => {
     if (user) {
-      // Display a greeting with the user's email
+       
       document.getElementById('message').style.display = "inline";
       document.getElementById('message').innerHTML = `Welcome, ${user.email}!`;
       document.getElementById('loginBtn').style.display = "none";
@@ -173,7 +173,7 @@ onAuthStateChanged(auth, (user) => {
       document.getElementById('logoutBtn').style.display = "inline";
 
     } else {
-      // If no user is logged in, show a message or prompt to login
+       
       document.getElementById('message').innerHTML = "Please log in.";
       document.getElementById('loginBtn').style.display = "inline";
       document.getElementById('signupBtn').style.display = "inline";
